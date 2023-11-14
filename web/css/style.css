@@ -14,6 +14,13 @@ header {
     
 }
 
+.all.containers {
+
+    display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+}
+
 .container {
     width: 100%;
     max-width: 600px; /* Defina a largura máxima da div conforme necessário */
@@ -22,6 +29,8 @@ header {
     overflow: hidden; /* Limite o overflow para conter as flutuações internas */
     border-radius: 25px; /* Adicione bordas arredondadas */
     background-color: #f8f8f8;
+    display: block;
+    margin-bottom: 20px;
   }
 
   .imagem {
@@ -90,7 +99,7 @@ header::after {
 }
 
 .background-image {
-    background-image: url(../../images/pizza-background.jpg); /* Substitua pelo caminho da sua imagem */
+    background-image: url(../images/pizza-background.jpg); /* Substitua pelo caminho da sua imagem */
     background-size: cover;
 background-position: center top;
     
