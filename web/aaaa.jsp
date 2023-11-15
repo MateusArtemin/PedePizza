@@ -112,7 +112,7 @@
         <div class="quantity-price-container">
           <div class="quantity-selector">
             <button type="button" class="quantity-btn" onclick="decrementQuantity('quantity<%= x %>')">-</button>
-            <input type="number" name="quantity<%= x %>" value="0" style="width: 20px;">
+            <input type="number" name="quantity<%= x %>" value="0" style="width: 40px;">
             <button type="button" class="quantity-btn" onclick="incrementQuantity('quantity<%= x %>')">+</button>
           </div>
           
