@@ -6,6 +6,7 @@
     <title>Login</title>
 
     <link href="css/style.css" rel="stylesheet"/>
+    <script src="js/log.js"></script>
 </head>
 <body>
     <header>
@@ -13,16 +14,15 @@
     </header>
     <nav>
         <li><a href="index.html">HOME</a></li>
-        <li><a href="pizzerias.html">PIZZARIAS</a></li>
-        <li><a href="login.html">ENTRAR</a></li>
-        <li><a href="register.html">CADASTRAR</a></li>
-        <li><a href="">PEDIDOS</a></li>
+        <li><a href="pizzerias.html">PIZZARIAS</a></li>    
         <li><a href="">ENDEREÇOS</a></li>
+        <li><a href="login.html" id="switch1">ENTRAR</a></li>
+        <li><a href="register.html" id="switch2">CADASTRAR</a></li>
     </nav>
 
     <div class="background-image"></div>
     <div class="login-container">
-        <form>
+        <form name="FormLog" method="post" action="looginC.jsp">
             <p>
                 <label for="cpf">CPF:</label>
                 <input type="text" name="cpf" id="cpf">
@@ -33,7 +33,7 @@
             </p>
 
             <p>
-                <button type="submit"> entrar </button>
+                <button type="submit" value="login"> entrar </button>
             </p>
 
             <p>
