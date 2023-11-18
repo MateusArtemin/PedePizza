@@ -34,33 +34,33 @@
             rs = stmt.executeQuery();
             
             String nome = "";
+            int uID = 0; // Alteração aqui
+            
             if (rs.next()) {
-            nome = rs.getString("nome");
-            out.println("Nome do cliente: " + nome + "<br>");
+                nome = rs.getString("nome");
+                uID = Integer.parseInt(rs.getString("idcliente")); // Conversão para int
+                out.println("Nome do cliente: " + nome + "<br>");
             }
             
-            if (nome != ""){
-            %>
+            if (!nome.equals("")) { // Alteração aqui
+    %>
             <script>
-                alert("Bem vindo " + "<%= nome %>");
                 localStorage.setItem("usuarioLogado", "true");
                 localStorage.setItem("usuarioNome", "<%= nome %>");
-               window.location.href = "index.html";
+                localStorage.setItem("usuarioId", <%= uID %>); // Sem aspas para valores inteiros
+                window.location.href = "index.html";
             </script>
-<%
-    }else {
-            out.println("Nenhum resultado encontrado.");
-%>
+    <%
+            } else {
+                out.println("Nenhum resultado encontrado.");
+    %>
             <script>
                 localStorage.setItem("usuarioLogado", "false");
                 alert("dados incorretos");
                 window.location.href = "login.html";
             </script>
-<%
-        }
-            
-           
-            
+    <%
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
             out.println("Erro: " + ex.toString());

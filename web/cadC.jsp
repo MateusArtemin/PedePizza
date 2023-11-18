@@ -52,11 +52,7 @@
             
            out.println(clit.getNome() + clit.getSenha() + clit.getEmail() + clit.getTelefone_cliente() + clit.getCPF());
             
-           /* out.println("<b> Registro - Clientes </b>");
-            out.println("<br> Identificação: " + cli.getId());
-            out.println("<br> Nome: " + cli.getNome());
-            out.println("<br> Idade: " + cli.getIdade());
-            out.println("<br> Renda: " + cli.getRenda());*/
+           
 
         %>
         

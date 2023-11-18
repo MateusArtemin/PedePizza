@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="css/style.css" rel="stylesheet"/>
+    <script src="js/log.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Pede Pizza</h1>
+    </header>
+    <nav>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="pizzerias.html">PIZZARIAS</a></li>    
+        <li><a href="ender.html" id="switch3">ENDEREÇOS</a></li>
+        <li><a href="login.html" id="switch1">ENTRAR</a></li>
+        <li><a href="register.html" id="switch2">CADASTRAR</a></li>
+    </nav>
+
+    <div class="background-image"></div>
+    <div class="login-container">
+        <form name="FormEnd" method="post" action="cadEnde.jsp">
+            <p>
+                <label for="CEP">CEP:</label>
+                <input type="text" name="CEP" id="CEP">
+            </p>
+            <p>
+                <label for="Rua">Rua:</label>
+                <input type="text" name="Rua" id="Rua">
+            </p>
+            
+            <p>
+                <label for="Bairro">Bairro:</label>
+                <input type="text" name="Bairro" id="Bairro">
+            </p>
+            
+            <p>
+                <label for="Cidade">Cidade:</label>
+                <input type="text" name="Cidade" id="Cidade">
+            </p>
+            
+            <p>
+                <label for="Estado">Estado:</label>
+                <input type="text" name="Estado" id="Estado">
+            </p>
+            
+            
+            <p>
+                <label for="Complemento">Complemento:</label>
+                <input type="text" name="Complemento" id="Complemento">
+            </p>
+            
+            
+            <p>
+                <label for="Numero">Numero:</label>
+                <input type="text" name="Numero" id="Numero">
+            </p>
+            
+
+            <p>
+                <button type="submit" value="login"> entrar </button>
+            </p>
+
+        </form>
+    </div>
+<script src="js/log.js"></script>
+</body>
+</html>
