@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+       <body>
         <h1>Clientes</h1>
                 
         <%
@@ -17,7 +17,7 @@
             ResultSet rs = null;
             
             //sets 
-            clit.setId(request.getParameter("CIP"));
+            //clit.setId(request.getParameter("CIP"));
             clit.setCep(request.getParameter("CEP"));
             clit.setRua(request.getParameter("Rua"));
             clit.setBairro(request.getParameter("Bairro"));
@@ -42,7 +42,8 @@
                 Class.forName("com.mysql.jdbc.Driver"); // registra            
                 Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/Negocios", "root", "");
                 
-                String sql1 = "UPDATE endereco_cliente SET rua = ?, bairro = ?, cidade = ?, estado = ?, complemento = ?, numero = ?, cep = ? WHERE idendereco = ?;";
+                
+                String sql1 = "INSERT INTO endereco_cliente (id_end_cliente, rua, bairro, cidade, estado , complemento , numero , cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 String sql2 = "SELECT * FROM `usolog`";
                 
                 
@@ -52,22 +53,23 @@
                     rs = pstmtt.executeQuery();
                     if (rs.next()) {
                         IdLog = Integer.parseInt(rs.getString("IdUsoLog"));   
+                        out.println(IdLog);
                         clit.setIdC(IdLog);
                     }
                 }
   
                 
                 try (PreparedStatement pstmt = conexao.prepareStatement(sql1)) {
-                    pstmt.setString(8, clit.getId());
-                    pstmt.setString(1, clit.getRua());
-                    pstmt.setString(2, clit.getBairro());
-                    pstmt.setString(3, clit.getCidade());
-                    pstmt.setString(4, clit.getEstado());
-                    pstmt.setString(5, clit.getComplemento());
-                    pstmt.setString(6, clit.getNumero());
-                    pstmt.setString(7, clit.getCep());
+                    pstmt.setString(1, clit.getIdC() + "");
+                    pstmt.setString(2, clit.getRua());
+                    pstmt.setString(3, clit.getBairro());
+                    pstmt.setString(4, clit.getCidade());
+                    pstmt.setString(5, clit.getEstado());
+                    pstmt.setString(6, clit.getComplemento());
+                    pstmt.setString(7, clit.getNumero());
+                    pstmt.setString(8, clit.getCep());
                     
-                    out.println("<br> aa:" + clit.getId() + "<br>");
+                    out.println("<br> aa:" + clit.getIdC() + "<br>");
                     pstmt.executeUpdate();
                     
                 }
@@ -79,7 +81,7 @@
                 out.println("Erro: " + ex.toString());
                 
             }
-            out.println("IdC: " + request.getParameter("CIP"));
+            
 
         %>
     </body>

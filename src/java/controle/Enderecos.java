@@ -19,7 +19,7 @@ public class Enderecos {
     private String estado;
     private String complemento;
     private String numero;
-    private String idC;
+    private int idC;
 
     public String getId() {
         return id;
@@ -85,11 +85,11 @@ public class Enderecos {
         this.numero = numero;
     }
 
-    public String getIdC() {
+    public int getIdC() {
         return idC;
     }
 
-    public void setIdC(String idC) {
+    public void setIdC(int idC) {
         this.idC = idC;
     }
     

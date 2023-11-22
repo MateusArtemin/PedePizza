@@ -1,18 +1,16 @@
 
-
          
         function atualizar() {
-            
+             
             var s1 = document.getElementById("switch1");
             var s2 = document.getElementById("switch2");
-            var s3 = document.getElementById("switch3");
+            var s3 = document.getElementsByClassName("switch3");
                    
-            
             
             
             if (localStorage.getItem('usuarioLogado') === "true") {
                 s1.innerHTML = 'PEDIDOS';
-                s1.href = 'pedidos.html';
+                s1.href = 'pedidos.jsp';
                 s2.innerHTML = 'SAIR';
                 s2.href = 'javascript:deslogarUsuario()';      
                 
@@ -25,14 +23,19 @@
             }
             
             
-            
             if(localStorage.getItem('usuarioLogado')  === "false")
             {
+
+                 for (var i = 0; i < s3.length; i++) {
                 
-                s3.addEventListener("click", function(event) {
+                s3[i].addEventListener("click", function(event) {
                     event.preventDefault();
-                    alert("você precisa ENTRAR com sua conta para adicionar endereços");
+                    alert("você precisa ENTRAR para acessar essa opção");
                     });
+                    
+                 }
+                
+                
             }else
             {
                 

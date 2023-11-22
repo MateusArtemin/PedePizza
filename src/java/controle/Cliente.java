@@ -10,12 +10,21 @@ package controle;
  */
 public class Cliente {
     
+    private int IdCli;
     private String nome;
     private String senha;
     private String email;
     private String telefone_cliente;
     private String CPF;
 
+    public int getIdCli() {
+        return IdCli;
+    }
+
+    public void setIdCli(int IdCli) {
+        this.IdCli = IdCli;
+    }
+       
     public String getNome() {
         return nome;
     }

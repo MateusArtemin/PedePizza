@@ -4,16 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+   
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #botao1 {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #botao2 {
+            background-color: #008CBA;
+            color: white;
+        }
+    </style>
 
     <link href="css/style.css" rel="stylesheet"/>
+    
     <script src="js/log.js"></script>
+    
 </head>
-<body>
+<body >
+    <script>
+        localStorage.getItem('usuarioId')
+    </script>
+    
     
     <header>
         <h1>Pede Pizza</h1>
     </header>
-    
     <nav>
         <li><a href="index.html">HOME</a></li>
         <li><a href="pizzerias.html" class="switch3">PIZZARIAS</a></li>    
@@ -24,26 +53,15 @@
     </nav>
 
     <div class="background-image"></div>
+    
     <div class="login-container">
         
-        <form name="FormLog" method="post" action="login_aut.jsp">
-            
-            <p>
-                <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" id="cpf">
-            </p>
-            
-            <p>
-                <label for="password">Senha:</label>
-                <input type="password" name="password" id="password">
-            </p>
-
-            <p> <button type="submit" value="login"> entrar </button> </p>           
-            <p> <a href="register.html">não tenho cadastro</a> </p>
-                
-        </form>
+            <a href="ender.html"><button type="button" class="button" id="botao1" >Adicionar nova endereço</button></a>
+            <a href="EnderQ.jsp"><button type="button" class="button" id="botao2" >Alterar endereços</button></a>
         
     </div>
+    
+    
     
     <script src="js/log.js"></script>
     

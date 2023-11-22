@@ -6,50 +6,63 @@
     <title>Registrar</title>
 
     <link href="css/style.css" rel="stylesheet"/>
+    
 </head>
 <body>
+    
     <header>
         <h1>Pede Pizza</h1>
     </header>
+    
     <nav>
+        
         <li><a href="index.html">HOME</a></li>
-        <li><a href="pizzerias.html">PIZZARIAS</a></li>    
-        <li><a href="ender.html" id="switch3">ENDEREÇOS</a></li>
+        <li><a href="pizzerias.html" class="switch3">PIZZARIAS</a></li>    
+        <li><a href="EnderM.html" class="switch3">ENDEREÇOS</a></li>
+        <li><a href="conta.jsp" class="switch3">CONTA</a></li>
         <li><a href="login.html" id="switch1">ENTRAR</a></li>
         <li><a href="register.html" id="switch2">CADASTRAR</a></li>
+        
     </nav>
 
     <div class="background-image"></div>
+    
     <div class="login-container">
+            
         <form name="FormCad" method="post" action="cadC.jsp">
+                
             <p>
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome">
             </p>
+                
             <p>
                 <label for="email">Email:</label>
                 <input type="text" name="email" id="email">
             </p>
+                
             <p>
                 <label for="CPF">Cpf:</label>
                 <input type="text" name="CPF" id="CPF">
             </p>
+                
             <p>
                 <label for="tel">Telefone:</label>
                 <input type="text" name="tel" id="tel">
             </p>
+                
             <p>
                 <label for="senha">Senha:</label>
                 <input type="password" name="senha" id="senha">
             </p>
 
-
-            <p>
-                <button type="submit"> entrar </button>
-            </p>
+            <p> <button type="submit"> entrar </button> </p>
+            
         </form>
+        
     </div>
 
     <script src="js/log.js"></script>
+    
 </body>
 </html>

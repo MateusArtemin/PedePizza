@@ -3,6 +3,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    
+    <link href="css/style.css" rel="stylesheet"/>
+    
     <title>SaP</title>
 
      <style type="text/css">
@@ -12,6 +15,7 @@
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
   }
 
   .menu-item {
@@ -73,11 +77,25 @@
     </style>
 </head>
 <body>
-    <h2>Cardápio</h2>
+    <header>
+        <h1>Pede Pizza</h1>
+    </header>
+
+    <nav>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="pizzerias.html" class="switch3">PIZZARIAS</a></li>    
+        <li><a href="EnderM.html" class="switch3">ENDEREÇOS</a></li>
+        <li><a href="conta.jsp" class="switch3">CONTA</a></li>
+        <li><a href="login.html" id="switch1">ENTRAR</a></li>
+        <li><a href="register.html" id="switch2">CADASTRAR</a></li>
+    </nav>
+
+    <div class="background-image"></div>
 
     <%
-        // Obter o ID do estabelecimento a partir da URL
-        int idEstabelecimento = Integer.parseInt(request.getParameter("idEstabelecimento"));
+        String IdEndereco = "";
+            List<String> Pedidos = new ArrayList<>(); 
+            int idEstabelecimento = Integer.parseInt(request.getParameter("idEstabelecimento"));
             // Conectar ao banco de dados
             String url = "jdbc:mysql://localhost:3306/Negocios";
             String usuario = "root";
@@ -90,8 +108,18 @@
         PreparedStatement pstmt = conexao.prepareStatement(query);
         pstmt.setInt(1, idEstabelecimento);
         ResultSet rs = pstmt.executeQuery();
+        
+        String query2 = "SELECT * FROM `usolog`";
+        PreparedStatement pstmt2 = conexao.prepareStatement(query2);
+        ResultSet rs2 = pstmt2.executeQuery();
+        rs2.next();
+        String query3 = "SELECT * FROM `endereco_cliente` WHERE id_end_cliente = " + rs2.getString("IdUsoLog");
+        PreparedStatement psmt3 = conexao.prepareStatement(query3);
+        ResultSet rs3 = psmt3.executeQuery();
+        
     %>
 
+    
     <form action="processaPedido.jsp" method="post">
         
        
@@ -100,7 +128,7 @@
             <%
             int x = 0;
                 while (rs.next()) {
-                
+                String GetValId = rs.getString("idproduto");
                 x++;
             %>
             
@@ -113,17 +141,47 @@
           <div class="quantity-selector">
             <button type="button" class="quantity-btn" onclick="decrementQuantity('quantity<%= x %>')">-</button>
             <input type="number" name="quantity<%= x %>" value="0" style="width: 40px;">
+            <input type="hidden" name="QId<%= x %>" value="<%= x %>">
             <button type="button" class="quantity-btn" onclick="incrementQuantity('quantity<%= x %>')">+</button>
           </div>
           
         </div>
       </div>
+          
+          <input type="hidden" name="ValIdProd<%= x %>" id="ValIdProd<%= GetValId %>" value="<%= GetValId %>" >
             <%
                 }
+
+                
+
             %>
         </table>
-
+        <div class="menu-item">
+        <label for="Rua">Rua:</label>
+        <select id="localE" name="localE" style="width: 400px; height: 30px;">
+        
+        <% 
+        while(rs3.next()){
+        String rua = rs3.getString("rua");
+        IdEndereco = rs3.getString("idendereco");
+        
+        %>
+        
+        <option value=<%=IdEndereco %>> <%=rua %> </option>
+        
+        <%
+        
+        }
+        %>
+</div>
+        </select>
+<br>
+        <div class="menu-item">
+        <input type="hidden" name="TotalD" id="TotalD" value=<%= x %> >
+        <input type="hidden" name="EstablD" id="EstablD" value=<%= idEstabelecimento %> >
+        
         <input type="submit" value="Enviar Pedido">
+        </div>
     </form>
 
     <%
@@ -134,6 +192,8 @@
     %>
 
 <script>
+    var mensagemDoJSP = '<%= IdEndereco %>';
+    
     function incrementQuantity(id) {
         var quantityElement = document.getElementsByName(id)[0];
         var currentQuantity = parseInt(quantityElement.value);
@@ -149,7 +209,7 @@
     }
 </script>
 
-
+<script src="js/log.js"></script>
 
 </body>
 </html>
