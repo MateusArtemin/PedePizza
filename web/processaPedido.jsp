@@ -119,7 +119,7 @@
             %><script>
         alert("Pedido feito!");
         window.location.href = "pizzerias.html";
-        </script>%<
+        </script> <%
             
         }  }
             catch(Exception ex)

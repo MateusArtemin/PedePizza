@@ -72,6 +72,11 @@
                     
                 }
                 
+                    %><script>
+        alert("Endereço alterado!");
+        window.location.href = "EnderQ.jsp";
+        </script> <%
+                
                 conexao.close();      
             }
             catch(Exception ex) {

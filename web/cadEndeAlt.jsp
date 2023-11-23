@@ -74,6 +74,11 @@
                     
                 }
                 
+                    %><script>
+        alert("Endereço cadastrado!");
+        window.location.href = "ender.html";
+        </script> <%
+                
                 conexao.close();      
             }
             catch(Exception ex) {
