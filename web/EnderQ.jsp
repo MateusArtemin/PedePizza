@@ -169,7 +169,9 @@
                                     }
                              
                              }
+                        conexao.close();
                         }
+                        
                         catch(Exception ex)
                         {
                             ex.printStackTrace();

@@ -19,41 +19,30 @@ public class Produto {
     public String getProdNome() {
         return ProdNome;
     }
-
     public void setProdNome(String ProdNome) {
         this.ProdNome = ProdNome;
-    }
-    
-    
-
+    }      
     public int getIdProdPed() {
         return IdProdPed;
     }
-
     public void setIdProdPed(int IdProdPed) {
         this.IdProdPed = IdProdPed;
     }
-
     public int getIdProd() {
         return IdProd;
     }
-
     public void setIdProd(int IdProd) {
         this.IdProd = IdProd;
     }
-
     public float getProdPreco() {
         return ProdPreco;
     }
-
     public void setProdPreco(float ProdPreco) {
         this.ProdPreco = ProdPreco;
     }
-
     public int getProdQuant() {
         return ProdQuant;
     }
-
     public void setProdQuant(int ProdQuant) {
         this.ProdQuant = ProdQuant;
     }

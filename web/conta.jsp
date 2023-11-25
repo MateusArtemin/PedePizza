@@ -65,7 +65,7 @@
                 cli.setSenha(PsCrs.getString("senha"));
                 cli.setTelefone_cliente(PsCrs.getString("telefone_cliente"));
         }
-    
+    conexao.close();
     }catch(Exception ex) 
     {
     ex.printStackTrace();

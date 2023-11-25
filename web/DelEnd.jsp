@@ -60,7 +60,7 @@
             }
         
             
-        
+        conexao.close();
         }
         catch(Exception ex)
         {

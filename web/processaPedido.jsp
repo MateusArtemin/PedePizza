@@ -40,7 +40,6 @@
         
         try
         {
-            //log
             try (PreparedStatement pstmtt = conexao.prepareStatement(sql5))
                 {
                     ResultSet rsLog = pstmtt.executeQuery();
@@ -49,12 +48,9 @@
                         ped.setIdCli(IdLog);
                     }
                 }
-        
-        
-            //criar pedidog
+               
             try(PreparedStatement ps2 = conexao.prepareStatement(sql2))
             {
-                //INSERT INTO pedidog (IDEstabelecimento , IDCliente, IDEndereco) VALUES ( ?,?,?)
                 ps2.setInt(1,ped.getEstabId());
                 ps2.setInt(2,ped.getIdCli());
                 ps2.setInt(3,ped.getCliLocal());
@@ -70,20 +66,13 @@
                 
             }
         
-        while (x <= MaxId)
-        {
-            
-            
+        while (x <= MaxId){                       
             ped.setIdList(Integer.parseInt(request.getParameter("ValIdProd" + x)));
             ped.setQuantP(Integer.parseInt(request.getParameter("quantity" + x)));
-                                                             
-            
-                   
-            String sql1 = "SELECT * FROM produtos WHERE idproduto = ?";
-                    
+                                                                                           
+            String sql1 = "SELECT * FROM produtos WHERE idproduto = ?";                   
             String sql4 = "INSERT INTO produtospedido (IDPedido, IDProduto, Quantidade, Preco) VALUES (?, ?, ?, ?)";
                
-            //pegar preco
             try(PreparedStatement ps = conexao.prepareStatement(sql1))
             {
                 ps.setInt(1,ped.getIdList(x-1));
@@ -121,15 +110,16 @@
         window.location.href = "pizzerias.html";
         </script> <%
             
-        }  }
+        }  
+            conexao.close();
+        }
             catch(Exception ex)
             {
             ex.printStackTrace();
             out.println("erro: " + ex.toString());           
             } 
         
-        //out.println("EstabID:" + request.getParameter("EstablD") + "<br>");
-        //out.println("MaxId:" + MaxId +"<br>");
+     
                
         %>
     </body>

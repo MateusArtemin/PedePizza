@@ -50,7 +50,6 @@
             
             </script><%    
             
-        //UsoLogBD
         String sqlT = "DELETE FROM UsoLog;";            
         String sqlL = "INSERT INTO UsoLog (IdUsoLog, NameUsoLog) VALUES (?, ?)";
         PreparedStatement stmtT = conexao.prepareStatement(sqlT);
@@ -83,7 +82,7 @@
             </script><%
                 
         }
-
+conexao.close();
     } catch (Exception ex) {
             ex.printStackTrace();
             out.println("Erro: " + ex.toString());

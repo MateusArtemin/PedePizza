@@ -15,33 +15,32 @@
         <title>JSP Page</title>
         
         <style>
-            /* Adicione estilos apenas para o conteúdo dentro da div */
+            
             .container p {
-                /* Estilos para parágrafos dentro da div */
+
                 font-size: 16px;
                 color: #333;
-                /* Adicione mais estilos conforme necessário */
+
             }
 
             .container button {
-                /* Estilos para botões dentro da div */
+
                 background-color: #007bff;
                 color: #fff;
                 padding: 10px;
                 border: none;
                 cursor: pointer;
-                /* Adicione mais estilos conforme necessário */
+
             }
 
-            /* Adicione estilos específicos para a div */
+
             .container {
-                /* Estilos para a div */
+
                 border: 1px solid #ccc;
-                padding: 10px; /* Ajuste o valor conforme necessário */
+                padding: 10px;
                 margin-top: 20px;
                 background-color: rgba(255, 255, 255, 0.8);
-                /* Ajuste o valor de opacidade conforme necessário */
-                /* Adicione mais estilos conforme necessário */
+
             }
         </style>
     </head>
@@ -67,7 +66,7 @@
         
         <%
                 
-         Class.forName("com.mysql.jdbc.Driver"); // registra            
+         Class.forName("com.mysql.jdbc.Driver");      
          Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/Negocios", "root", "");
          String sql1 = "SELECT * FROM `usolog` ";
          String SQLPEDg = "SELECT * FROM `pedidog` WHERE IDCliente = ?";
@@ -133,11 +132,12 @@
                         <p>
                         <%= prod.getProdNome() %>
                         Quantidade: <%= prod.getProdQuant() %> 
-                        Preco: <%= prod.getProdPreco() * prod.getProdQuant()%>
+                        Preco: <%= prod.getProdPreco()%>
+                        
                         </p>
                         
                         <%
-                        total = prod.getProdPreco() * prod.getProdQuant();
+                        total = total + prod.getProdPreco() * prod.getProdQuant();
                     }
                         
                         %>
@@ -154,11 +154,12 @@
                     </div>
                 
                 <%
+                    total = 0;
             }
          }
          
          
-         
+         conexao.close();
         }
         catch(Exception ex)
                         {

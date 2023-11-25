@@ -96,14 +96,14 @@
         String IdEndereco = "";
             List<String> Pedidos = new ArrayList<>(); 
             int idEstabelecimento = Integer.parseInt(request.getParameter("idEstabelecimento"));
-            // Conectar ao banco de dados
+
             String url = "jdbc:mysql://localhost:3306/Negocios";
             String usuario = "root";
             String senha = "";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(url, usuario, senha);
 
-            // Consulta para obter o cardápio do estabelecimento específico
+
         String query = "SELECT * FROM Produtos WHERE id_prod_estab = ?";
         PreparedStatement pstmt = conexao.prepareStatement(query);
         pstmt.setInt(1, idEstabelecimento);
@@ -185,7 +185,6 @@
     </form>
 
     <%
-        // Fechar a conexão com o banco de dados
         rs.close();
         pstmt.close();
         conexao.close();

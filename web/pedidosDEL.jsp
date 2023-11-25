@@ -47,7 +47,7 @@
         window.location.href = "pedidos.jsp";
     </script>
     <%
-        
+        conexao.close();
         }
         catch(Exception ex)
         {

@@ -23,7 +23,6 @@
         
         <%
             
-            //sets
             Cliente clit = new Cliente(); 
             clit.setNome(request.getParameter("nome"));
             clit.setEmail(request.getParameter("email"));
@@ -31,7 +30,6 @@
             clit.setTelefone_cliente(request.getParameter("tel"));
             clit.setSenha(request.getParameter("senha"));
                        
-            //GRAVAR!
             try{
                 Class.forName("com.mysql.jdbc.Driver");       
                 Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/Negocios", "root", "");

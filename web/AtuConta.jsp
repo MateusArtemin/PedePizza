@@ -43,6 +43,13 @@
             
             pss.executeUpdate();
         }
+        conexao.close();
+        
+        %> <script>
+        alert("Alterado!");
+        window.location.href = "conta.jsp";
+    </script>
+    <%
         
         }catch(Exception ex) 
         {

@@ -16,8 +16,6 @@
             Enderecos clit = new Enderecos(); 
             ResultSet rs = null;
             
-            //sets 
-            //clit.setId(request.getParameter("CIP"));
             clit.setCep(request.getParameter("CEP"));
             clit.setRua(request.getParameter("Rua"));
             clit.setBairro(request.getParameter("Bairro"));
@@ -26,7 +24,6 @@
             clit.setComplemento(request.getParameter("Complemento"));
             clit.setNumero(request.getParameter("Numero"));     
             
-            //out.println
             out.println(
             "CEP: " + clit.getCep() + "<br>" +
             "Rua: " + clit.getRua() + "<br>" +
